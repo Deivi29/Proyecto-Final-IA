@@ -1,74 +1,99 @@
-# Proyecto de Final IA
 
-**Valor:** 50 puntos
-**Fecha de entrega:** 9/04/2025
-**Fechas de presentación:** 11/04/2025 y 12/04/2025
+# Proyecto Final de Inteligencia Artificial
+
+**Valor:** 40 puntos  
+**Fecha límite de entrega:** 11/08/2025  
+**Fecha de presentación oral:** 14/08/2025  
 
 ---
 
 ## Descripción del Proyecto
 
-El proyecto final consiste en realizar un *fork* del repositorio de GitHub donde se encuentra este archivo y, a partir de él, desarrollar una aplicación que implemente modelos de *deep learning* para resolver un problema específico. La aplicación debe ser interactiva y amigable, permitiendo a los usuarios interactuar de manera efectiva con el modelo.
+El proyecto final consiste en realizar un *fork* del repositorio de GitHub donde se encuentra este archivo, y a partir de él desarrollar una aplicación que implemente modelos de *deep learning* para resolver un problema específico.  
+
+La aplicación debe ser **interactiva y amigable**, permitiendo al usuario interactuar de forma efectiva con el modelo.
 
 ---
 
 ## Evaluación
 
-El proyecto se evaluará con un valor total de 50 puntos, distribuidos de la siguiente forma:
+El proyecto tendrá una valoración total de **40 puntos**, distribuidos en los siguientes criterios:
 
-### 1. 40 Puntos – Desarrollo de la Aplicación con Modelos de Deep Learning
+### 1. Desarrollo de la Aplicación con Modelos de Deep Learning
 
-- **Implementación:**
-  La aplicación debe integrar un modelo de *deep learning* utilizando PyTorch o librerías equivalentes (por ejemplo, Hugging Face).
+- **Implementación:**  
+  La aplicación debe integrar un modelo de *deep learning* utilizando PyTorch o librerías equivalentes. El modelo puede ser entrenado desde cero o adaptado a una tarea específica (*fine-tuning*). También es válido el uso de APIs externas.
 
-- **Recursos Adicionales:**
-  Se permite el uso de recursos como la API de OpenAI o el ajuste fino de modelos preentrenados según la tarea específica.
+- **Interfaz Gráfica:**  
+  Es obligatorio el uso de librerías como **Gradio** para crear una interfaz gráfica.  
+  **No se aceptarán notebooks ni interfaces por línea de comandos;** su uso será penalizado.
 
-- **Interfaz:**
-  Es obligatorio el uso de librerías de interfaz gráfica (como Gradio o Streamlit). No se aceptarán notebooks ni interfaces de línea de comandos; su uso será penalizado.
+- **Claridad en la Presentación:**  
+  Durante la presentación, se evaluará la **claridad, profundidad y dominio del tema** al explicar el funcionamiento de la aplicación.
 
-- **Claridad en la Presentación:**
-  Durante la presentación, se evaluará la claridad y profundidad de la explicación sobre el funcionamiento de la aplicación.
-
-*Calificación máxima de esta sección: 40 puntos*
-
-### 2. 10 Puntos Adicionales – Entrenamiento del Modelo desde Cero
-
-- Se otorgarán 10 puntos adicionales si el modelo es entrenado completamente desde cero, utilizando una arquitectura desarrollada por el estudiante y datos recolectados de forma independiente.
-
-*Calificación total máxima: 50 puntos*
+> **Puntaje máximo total: 40 puntos**
 
 ---
 
-## Detalles Adicionales
+## Requisitos Adicionales
 
-- **Individualidad:**
-  Los proyectos son individuales; se prohíbe la presentación de trabajos idénticos.
+### Individualidad
 
-- **Uso de Librerías:**
-  Se debe utilizar PyTorch o librerías derivadas. Aunque el uso de TensorFlow no está prohibido, se aplicará una penalización de 30 puntos en caso de emplearlo.
+- El proyecto es **individual**.
+- **No se aceptarán trabajos idénticos** ni colaborativos.
+- Cualquier indicio de copia o reutilización no autorizada resultará en **calificación 0**.
 
-- **Originalidad y Ética Académica:**
-  Se exigirá originalidad en la ejecución. La copia de proyectos existentes sin la debida atribución, o la apropiación del trabajo ajeno, resultará en una calificación de 0. Asimismo, se asignará 0 puntos a quienes declaren haber entrenado un modelo desde cero sin hacerlo realmente.
+### Originalidad y Ética Académica
 
-- **Video de Presentación:**
-  Además del proyecto, se debe subir un video explicativo en formato **MP4** que detalle el proceso de desarrollo y el funcionamiento de la aplicación.
-  - Evitar videos de 15 minutos que pesen 4 GB.
+- Se valorará la **originalidad** del enfoque y la solución propuesta.
+- El plagio o la apropiación de código sin la debida atribución implica **calificación 0** y posibles sanciones académicas.
 
-- **Formato de Entrega:**
-  El proyecto debe entregarse en un **archivo ZIP** que incluya:
-  - Un **archivo de texto plano** con tu nombre, matrícula y el enlace al repositorio de GitHub.
-  - El video explicativo.
+### Video de Presentación
 
-  *El nombre del archivo ZIP deberá ser tu nombre seguido de tu matrícula.*
+Debe incluirse un video explicativo en formato **.mp4**, donde se detalle:
 
-- **Estructura del Repositorio:**
-  El repositorio debe contener:
-  - Los scripts de Python, imágenes, sonidos y cualquier otro recurso necesario para la ejecución del proyecto.
-  - Un archivo **`requirements.txt`** con las librerías utilizadas, que permita instalar todas las dependencias con un solo comando.
-    > *Si no sabes qué es `requirements.txt`, investiga; no se aceptará un PDF con las librerías.*
-  - Un archivo **`.gitignore`** para evitar la inclusión de binarios y archivos innecesarios que incrementen el tamaño del repositorio.
+- El problema abordado.
+- El funcionamiento de la aplicación.
+- El proceso de desarrollo.
 
-- **Código y Comentarios:**
-  Los scripts de Python deben incluir comentarios que faciliten la comprensión del código.
-  Cada script deberá comenzar con un comentario que contenga tu nombre y matrícula.
+> Evite videos excesivamente largos o pesados (por ejemplo: 15 minutos en 4 GB).
+
+---
+
+## Formato de Entrega
+
+La entrega deberá realizarse en un **archivo ZIP** que contenga:
+
+- Un **archivo de texto plano** con tu nombre, matrícula y enlace al repositorio de GitHub.
+- El video explicativo.
+- Todo el código y recursos necesarios para ejecutar el proyecto.
+
+> El nombre del archivo ZIP debe ser:  
+> `NombreApellido_Matrícula.zip`
+
+---
+
+## Repositorio de GitHub
+
+- El proyecto debe estar alojado en un repositorio de **GitHub** con historial de *commits* que refleje el desarrollo real del proyecto.
+- Se evaluará el historial en caso de detectar irregularidades.
+- Se recomienda realizar *commits* frecuentes, con mensajes descriptivos por cada funcionalidad añadida.
+
+> **Subir archivos manualmente al repositorio está prohibido.**  
+> Si lo haces, el proyecto no será evaluado y obtendrás **calificación 0**.
+
+---
+
+## Estructura del Repositorio
+
+Tu repositorio debe incluir:
+
+- Todos los scripts de Python y recursos necesarios (imágenes, sonidos, modelos, etc.).
+- Un archivo **`requirements.txt`** con las dependencias necesarias para ejecutar el proyecto.
+  > Si no sabes qué es un `requirements.txt`, investígalo.  
+  > **No se aceptará un PDF con la lista de librerías.**
+  
+- Un archivo **`.gitignore`** adecuado que excluya archivos innecesarios (por ejemplo, binarios o datos pesados).
+- Comentarios explicativos en el código.  
+  Cada script debe comenzar con un encabezado que contenga tu **nombre y matrícula**.
+
