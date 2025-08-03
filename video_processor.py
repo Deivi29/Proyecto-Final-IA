@@ -1,22 +1,38 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
+import cv2
+import numpy as np
+import mediapipe as mp
+from gesture_model import GestureClassifier
+from game_logic import GameSimulator
 
-class GestureClassifier(nn.Module):
-    def __init__(self, input_size=33*2, num_classes=3):
-        super(GestureClassifier, self).__init__()
-        self.fc1 = nn.Linear(input_size, 128)
-        self.fc2 = nn.Linear(128, 64)
-        self.fc3 = nn.Linear(64, num_classes)
+mp_pose = mp.solutions.pose
 
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        return self.fc3(x)
+class VideoProcessor:
+    def __init__(self):
+        self.classifier = GestureClassifier()  # Modelo que devuelve "salto", etc.
+        self.simulator = GameSimulator()
+        self.pose = mp_pose.Pose(static_image_mode=False,
+                                 min_detection_confidence=0.5,
+                                 min_tracking_confidence=0.5)
 
-# Ejemplo de inicialización
-if __name__ == "__main__":
-    model = GestureClassifier()
-    sample_input = torch.randn(1, 66)  # 33 keypoints x (x, y)
-    output = model(sample_input)
-    print("Output:", output)
+    def procesar_frame(self, frame):
+        # Convertir BGR a RGB
+        image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = self.pose.process(image_rgb)
+
+        if results.pose_landmarks:
+            # Extraer coordenadas normalizadas
+            keypoints = []
+            for lm in results.pose_landmarks.landmark:
+                keypoints.append(lm.x)
+                keypoints.append(lm.y)
+            keypoints = np.array(keypoints)
+
+            # Clasificar gesto
+            gesture = self.classifier.predict(keypoints)
+        else:
+            gesture = "quieto"
+
+        # Actualizar juego
+        game_frame = self.simulator.update(gesture)
+
+        return game_frame
