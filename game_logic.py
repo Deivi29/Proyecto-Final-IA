@@ -12,13 +12,15 @@ class GameSimulator:
         self.jump_frame = 0
 
     def update(self, gesture):
+        #print("Gesto detectado:", gesture)  # Para depuración
+
         if gesture == "izquierda":
             self.player_x -= 20
         elif gesture == "derecha":
             self.player_x += 20
         elif gesture == "salto" and not self.jump:
             self.jump = True
-            self.jump_frame = 15  # number of frames to jump
+            self.jump_frame = 15  # frames de salto
 
         # Simular salto
         if self.jump:
@@ -29,8 +31,8 @@ class GameSimulator:
         else:
             self.player_y = self.height - 50
 
-        # Limitar dentro del marco
-        self.player_x = max(0, min(self.width, self.player_x))
+        # Limitar movimiento dentro de la ventana
+        self.player_x = max(30, min(self.width - 30, self.player_x))
 
         return self.render()
 
@@ -38,7 +40,7 @@ class GameSimulator:
         frame = np.ones((self.height, self.width, 3), dtype=np.uint8) * 255
         cv2.circle(frame, (self.player_x, self.player_y), 30, (0, 0, 255), -1)
         return frame
-# game_logic.py
+
 
 class GameLogic:
     def __init__(self):
