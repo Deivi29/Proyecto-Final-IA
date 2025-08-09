@@ -6,47 +6,66 @@
 
 ## Proyecto Final 
 
-# 🎮 CamJumpAI
+# 🎮 CamJumpAI - Juego Interactivo por Cámara usando IA
 
-**CamJumpAI** es un juego interactivo controlado por cámara que utiliza inteligencia artificial para detectar tus movimientos en tiempo real y convertirlos en acciones dentro del juego.
-
----
-
-## 📷 ¿Qué es CamJumpAI?
-
-CamJumpAI te permite jugar sin teclado ni mouse. Usando solo tu cuerpo y movimientos delante de una cámara, podrás controlar a tu personaje — por ejemplo, haciendo que salte o se mueva hacia los lados.
-
-Esta aplicación combina visión por computadora, redes neuronales y un diseño interactivo simple como parte del proyecto final para la materia de Inteligencia Artificial.
+**CamJumpAI** es un juego controlado por gestos corporales capturados por la cámara, utilizando detección de poses en tiempo real con **MediaPipe** y un modelo de *deep learning* implementado en **PyTorch**. El jugador puede mover un punto rojo (el personaje) a la izquierda, derecha o hacerlo saltar mediante gestos con las manos.
 
 ---
 
-## 💡 Características principales
+## 📌 Descripción
 
-- Detección de poses en tiempo real con **MediaPipe**
-- Control por cámara mediante movimientos físicos (sin periféricos)
-- Interfaz amigable usando **Gradio**
-- Uso de **deep learning** con **PyTorch** para futuras expansiones
-- Código modular y limpio con OpenCV y Numpy
+Este proyecto fue desarrollado como parte del examen final de la asignatura **Inteligencia Artificial**, y consiste en una aplicación interactiva que:
 
----
-
-## 🧠 Tecnologías utilizadas
-
-| Tecnología   | Rol                               |
-|--------------|------------------------------------|
-| Python       | Lenguaje principal                 |
-| MediaPipe    | Detección de poses                 |
-| OpenCV       | Captura y procesamiento de video   |
-| Numpy        | Manipulación de matrices           |
-| Gradio       | Interfaz web en tiempo real        |
-| PyTorch      | Base para modelos de deep learning |
+- Utiliza la cámara para detectar movimientos humanos en tiempo real.
+- Emplea un modelo de red neuronal simple en **PyTorch** para clasificar los gestos corporales.
+- Simula un entorno de juego minimalista donde los gestos detectados controlan al jugador.
+- Presenta dos modos de ejecución: desde interfaz gráfica (con **Gradio**) o directamente en ventana (con **OpenCV**).
 
 ---
 
-## ⚙️ Requisitos
+## 🧠 Tecnologías Usadas
 
-Antes de ejecutar el proyecto, asegúrate de tener Python 3.10+ y luego instala los paquetes necesarios con:
+- **Python 3.10+**
+- **PyTorch** – para el modelo de predicción de gestos
+- **MediaPipe** – para detección de poses en tiempo real
+- **OpenCV** – para el procesamiento visual y simulación del juego
+- **Gradio** – para la interfaz gráfica interactiva
+
+---
+
+## 🎮 ¿Cómo Funciona el Juego?
+
+El sistema detecta los siguientes gestos a partir de los puntos de referencia del cuerpo:
+
+- 🙌 Ambas manos arriba → **salto**
+- ✋ Mano izquierda arriba → **mover a la izquierda**
+- ✋ Mano derecha arriba → **mover a la derecha**
+- 🙅 Ninguna mano levantada → **quieto**
+
+Estos gestos se interpretan por un modelo de clasificación basado en PyTorch y se aplican en un entorno gráfico donde un punto rojo simula el jugador.
+
+---
+
+## 🧪 Estructura del Proyecto
+
+Proyecto-Final-IA/
+├── app.py # Interfaz gráfica con Gradio
+├── video_processor.py # Versión con ventana local (sin navegador)
+├── gesture_model.py # Modelo y clasificador de gestos con PyTorch
+├── game_logic.py # Lógica del juego y simulación
+├── create_dummy_model.py # Script para generar el modelo dummy
+├── models/
+│ └── gesture_model.pt # Modelo de deep learning guardado
+├── requirements.txt # Librerías necesarias
+├── README.md # Este archivo
+└── .gitignore # Exclusión de archivos innecesarios
+
+---
+
+## ⚙️ Instalación
+
+1. Clona el repositorio:
 
 ```bash
-pip install -r requirements.txt
-
+git clone https://github.com/tu-usuario/CamJumpAI.git
+cd CamJumpAI
