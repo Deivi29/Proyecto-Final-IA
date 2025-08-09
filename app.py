@@ -1,4 +1,7 @@
 # app.py
+## Nombre Deivi Rodriguez Paulino 
+## Matrícula 21-SISN-2-052 
+
 import cv2
 import mediapipe as mp
 import numpy as np

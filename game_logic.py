@@ -1,3 +1,6 @@
+## Nombre Deivi Rodriguez Paulino 
+## Matrícula 21-SISN-2-052 
+
 import numpy as np
 import cv2
 

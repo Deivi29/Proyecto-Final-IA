@@ -1,5 +1,6 @@
 # video_processor.py
-# Nombre: Deivi R. Paulino - Matrícula: [Tu matrícula aquí]
+## Nombre Deivi Rodriguez Paulino 
+## Matrícula 21-SISN-2-052 
 
 import cv2
 import numpy as np

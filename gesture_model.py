@@ -1,4 +1,7 @@
 # gesture_model.py
+## Nombre Deivi Rodriguez Paulino 
+## Matrícula 21-SISN-2-052 
+
 import torch
 import torch.nn as nn
 import numpy as np
