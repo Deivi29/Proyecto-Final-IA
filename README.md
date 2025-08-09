@@ -62,10 +62,24 @@ Proyecto-Final-IA/
 
 ---
 
-## ⚙️ Instalación
 
-1. Clona el repositorio:
+---
+
+## ⚙️ Instalación
 
 ```bash
 git clone https://github.com/tu-usuario/CamJumpAI.git
 cd CamJumpAI
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+python create_dummy_model.py
+
+🚀 Ejecución
+Interfaz Gradio (web local):
+
+python app.py
+Ventana nativa (sin navegador):
+
+python video_processor.py
+
