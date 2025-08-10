@@ -23,7 +23,7 @@ classifier = GestureClassifier()
 logic = GameLogic()
 simulator = GameSimulator()
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 finger_names = ["Pulgar", "Índice", "Medio", "Anular", "Meñique"]
 

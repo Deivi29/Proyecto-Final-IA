@@ -1,85 +1,75 @@
-# Proyecto-de-Final-IA
+# 🎮 CamJumpAI – Juego Interactivo por Cámara usando IA
 
-## Nombre Deivi Rodriguez Paulino 
+**Nombre:** Deivi Rodriguez Paulino  
+**Matrícula:** 21-SISN-2-052
 
-## Matrícula 21-SISN-2-052 
-
-## Proyecto Final 
-
-# 🎮 CamJumpAI - Juego Interactivo por Cámara usando IA
-
-**CamJumpAI** es un juego controlado por gestos corporales capturados por la cámara, utilizando detección de poses en tiempo real con **MediaPipe** y un modelo de *deep learning* implementado en **PyTorch**. El jugador puede mover un punto rojo (el personaje) a la izquierda, derecha o hacerlo saltar mediante gestos con las manos.
+CamJumpAI es un juego controlado por **gestos** capturados por la cámara. Usa **MediaPipe** para extraer puntos de pose en tiempo real y un modelo de **Deep Learning (PyTorch)** para clasificar gestos que mueven al jugador (izquierda, derecha, salto). Incluye interfaz gráfica con **Gradio** (obligatoria según `Examen.md`) y una versión alternativa en ventana local con **OpenCV**.
 
 ---
 
-## 📌 Descripción
-
-Este proyecto fue desarrollado como parte del examen final de la asignatura **Inteligencia Artificial**, y consiste en una aplicación interactiva que:
-
-- Utiliza la cámara para detectar movimientos humanos en tiempo real.
-- Emplea un modelo de red neuronal simple en **PyTorch** para clasificar los gestos corporales.
-- Simula un entorno de juego minimalista donde los gestos detectados controlan al jugador.
-- Presenta dos modos de ejecución: desde interfaz gráfica (con **Gradio**) o directamente en ventana (con **OpenCV**).
+## 🧠 Arquitectura (pipeline)
+Webcam → MediaPipe (Pose) → Keypoints (34: 17×[x,y]) → **PyTorch (MLP)** → Gesto → **Lógica de juego** → Render (OpenCV/Gradio)
 
 ---
 
-## 🧠 Tecnologías Usadas
+## ✨ Gestos soportados
+- 🙌 **Ambas manos arriba** → `salto`
+- ✋ **Mano izquierda arriba** → `izquierda`
+- ✋ **Mano derecha arriba** → `derecha`
+- 🙅 **Sin manos arriba** → `quieto`
 
-- **Python 3.10+**
-- **PyTorch** – para el modelo de predicción de gestos
-- **MediaPipe** – para detección de poses en tiempo real
-- **OpenCV** – para el procesamiento visual y simulación del juego
-- **Gradio** – para la interfaz gráfica interactiva
-
----
-
-## 🎮 ¿Cómo Funciona el Juego?
-
-El sistema detecta los siguientes gestos a partir de los puntos de referencia del cuerpo:
-
-- 🙌 Ambas manos arriba → **salto**
-- ✋ Mano izquierda arriba → **mover a la izquierda**
-- ✋ Mano derecha arriba → **mover a la derecha**
-- 🙅 Ninguna mano levantada → **quieto**
-
-Estos gestos se interpretan por un modelo de clasificación basado en PyTorch y se aplican en un entorno gráfico donde un punto rojo simula el jugador.
+> Nota: El modelo puede entrenarse con tus propias muestras para mayor precisión.
 
 ---
 
-## 🧪 Estructura del Proyecto
-
+## 📁 Estructura del proyecto
 Proyecto-Final-IA/
-├── app.py # Interfaz gráfica con Gradio
-├── video_processor.py # Versión con ventana local (sin navegador)
-├── gesture_model.py # Modelo y clasificador de gestos con PyTorch
-├── game_logic.py # Lógica del juego y simulación
-├── create_dummy_model.py # Script para generar el modelo dummy
-├── models/
-│ └── gesture_model.pt # Modelo de deep learning guardado
-├── requirements.txt # Librerías necesarias
-├── README.md # Este archivo
-└── .gitignore # Exclusión de archivos innecesarios
+├─ app.py # Interfaz gráfica (Gradio)
+├─ video_processor.py # Ejecución local en ventana (OpenCV)
+├─ gesture_model.py # Carga/uso del modelo PyTorch
+├─ game_logic.py # Lógica del juego, física y render
+├─ collect_gestures.py # (Nuevo) Recolección de dataset con la webcam
+├─ train_gesture.py # (Nuevo) Entrenamiento del modelo (PyTorch)
+├─ create_dummy_model.py # Modelo dummy (por si no se entrena)
+├─ models/
+│ └─ gesture_model.pt # Pesos del modelo entrenado
+├─ data/
+│ └─ gestures.npz # Dataset recolectado (X: (N,34), y: etiquetas)
+├─ requirements.txt # Dependencias
+├─ README.md # Este archivo
+└─ .gitignore # Archivos a excluir
 
 ---
+
+## 🧩 Requisitos
+- **Python 3.10** (recomendado)
+- Cámara web habilitada
+- Paquetes (versiones sugeridas y probadas en Win+Py3.10):
+
+numpy==1.26.4
+opencv-python==4.8.1.78
+mediapipe==0.10.9
+gradio==3.50.2
+torch==2.3.1
+torchvision==0.18.1
+torchaudio==2.3.1
+pillow==10.4.0
 
 
 ---
 
 ## ⚙️ Instalación
-
 ```bash
-git clone https://github.com/tu-usuario/CamJumpAI.git
-cd CamJumpAI
+git clone https://github.com/<tu-usuario>/<tu-repo-o-fork>.git
+cd Proyecto-Final-IA
+
+# Crear entorno
 python -m venv venv
+# Windows
 .\venv\Scripts\activate
+# macOS/Linux
+# source venv/bin/activate
+
+# Instalar dependencias
 pip install -r requirements.txt
-python create_dummy_model.py
-
-🚀 Ejecución
-Interfaz Gradio (web local):
-
-python app.py
-Ventana nativa (sin navegador):
-
-python video_processor.py
 
