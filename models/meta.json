@@ -1,0 +1,9 @@
+{
+  "classes": [
+    "salto",
+    "izquierda",
+    "derecha",
+    "quieto"
+  ],
+  "n_features": 34
+}
