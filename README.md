@@ -1,4 +1,4 @@
-# 🎮 CamJumpAI – Juego Interactivo por Cámara usando IA
+#  CamJumpAI – Juego Interactivo por Cámara usando IA
 
 **Nombre:** Deivi Rodriguez Paulino  
 **Matrícula:** 21-SISN-2-052
@@ -22,7 +22,7 @@ Webcam → MediaPipe (Pose) → Keypoints (34: 17×[x,y]) → **PyTorch (MLP)** 
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 Proyecto-Final-IA/
 ├─ app.py # Interfaz gráfica (Gradio)
 ├─ video_processor.py # Ejecución local en ventana (OpenCV)
@@ -41,7 +41,7 @@ Proyecto-Final-IA/
 
 ---
 
-## 🧩 Requisitos
+## Requisitos
 - **Python 3.10** (recomendado)
 - Cámara web habilitada
 - Paquetes (versiones sugeridas y probadas en Win+Py3.10):
@@ -58,7 +58,7 @@ pillow==10.4.0
 
 ---
 
-## ⚙️ Instalación
+## Instalación
 ```bash
 git clone https://github.com/<tu-usuario>/<tu-repo-o-fork>.git
 cd Proyecto-Final-IA
@@ -72,4 +72,14 @@ python -m venv venv
 
 # Instalar dependencias
 pip install -r requirements.txt
+
+## Ejecución
+
+### Modo local (OpenCV)
+```bash
+(venv) python app.py --mode local
+
+## Modo Gradio (interfaz web local)
+```bash
+(venv) python app.py --mode gradio
 
