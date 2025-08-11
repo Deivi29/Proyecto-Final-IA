@@ -83,3 +83,5 @@ pip install -r requirements.txt
 ```bash
 (venv) python app.py --mode gradio
 
+## Demo
+- Video: [video_explicativo.mp4](./video_explicativo.mp4) 
